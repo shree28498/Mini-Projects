@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Image filter</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .main-wrapper{
+            width: 100%;
+            box-sizing: border-box;
+            padding: 90px;
+        }
+        .content-box{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+        .filter, .image{
+            width: 48%;
+            font-size: 18px;
+            font-weight: 500;
+            box-sizing: border-box;
+        }
+        .image img{
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .image img:hover{
+            filter: contrast(50%);
+        }
+        .filter input{
+            width: 80%;
+            box-sizing: border-box;
+        }
+        .filter input:hover{
+            cursor: pointer;
+        }
+        .inputBox{
+            width: 100%;
+        }
+        .inputBox span{
+            display: block;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="main-wrapper">
+        <div class="container content-box">
+            <div class="filter">
+                <div class="inputBox">
+                    <span>Greyscale</span>
+                    <input type="range" name="greyscaleFilter"  value="0" id="greyscaleFilter">
+                </div>
+                <div class="inputBox">
+                    <span>Sepia</span>
+                    <input type="range" name="sephiaFilter"  value="0" id="sephiaFilter">
+                </div>
+                <div class="inputBox">
+                    <span>Blur</span>
+                    <input type="range" name="blurFilter" min="0" max="20"  value="0" id="blurFilter">
+                </div>
+                <div class="inputBox">
+                    <span>Invert</span>
+                    <input type="range" name="invertFilter"  value="0" id="invertFilter">
+                </div>
+                <div class="inputBox">
+                    <span>Opacity</span>
+                    <input type="range" name="opacityFilter"  value="100" id="opacityFilter">
+                </div>
+                <div class="inputBox">
+                    <span>Brightness</span>
+                    <input type="range" name="brightnessFilter"  value="100" id="brightnessFilter">
+                </div>
+                <div class="inputBox">
+                    <span>Contrast</span>
+                    <input type="range" name="contrastFilter"  value="100" id="contrastFilter">
+                </div>
+                <div class="inputBox">
+                    <span>Saturate</span>
+                    <input type="range" name="saturateFilter"  value="100" id="saturateFilter">
+                </div>
+            </div>
+            <div class="image">
+                <img id="images" src="https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=170667a&w=0&k=20&c=vKqLcyX0Qlrh8A351AA3-h2s5P46CZjh8JR6_QyV-D4=" alt="Beautiful nature">
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('.inputBox input').on('input', function(){
+                let greyVal = $('#greyscaleFilter').val();
+                let sepiaVal = $('#sephiaFilter').val();
+                let blurVal = $('#blurFilter').val();
+                let invertVal = $('#invertFilter').val();
+                let opacityVal = $('#opacityFilter').val();
+                let brightnessVal = $('#brightnessFilter').val();
+                let contrastVal = $('#contrastFilter').val();
+                let saturateVal = $('#saturateFilter').val();
+                
+                $('#images').css('filter', 'grayscale('+ greyVal +'%) sepia('+ sepiaVal +'%) blur('+ blurVal +'px) invert('+ invertVal +'%) opacity('+ opacityVal +'%) brightness('+ brightnessVal +'%) contrast('+ contrastVal +'%) saturate('+ saturateVal +'%)');
+            });
+        });
+    </script>
+  </body>
+</html>

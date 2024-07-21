@@ -1,0 +1,39 @@
+
+body{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container{
+    text-align: center;
+    padding: 50px;
+    margin: 0 auto;
+}
+
+#signature-pad{
+    border: 1px solid;
+    background-color: #fff;
+}
+
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 5px;
+}
+
+button{
+    background-color: rgb(18, 131, 230);
+    border: none;
+    border-radius: 3px;
+    padding: 7px 15px;
+    color: #fff;
+    font-size: 16px;
+}
+
+button:hover{
+    cursor: pointer;
+    transition: 300ms;
+    background-color: rgb(90, 145, 194);
+}
